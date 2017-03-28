@@ -1,0 +1,17 @@
+//
+//  ZhiBo.pch
+//  Demo
+//
+//  Created by ugamehome on 2016/10/20.
+//  Copyright © 2016年 ugamehome. All rights reserved.
+//
+
+#ifndef ZhiBo_pch
+#define ZhiBo_pch
+
+
+#import "ZhiboHeader.h"
+
+#endif /* ZhiBo_pch */
+
+
