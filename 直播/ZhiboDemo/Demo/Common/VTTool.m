@@ -11,7 +11,6 @@
 #include <arpa/inet.h>
 #import "KeyChainStore.h"
 #import <CommonCrypto/CommonDigest.h>
-#import <UIKit/UIKit.h>
 
 @implementation VTTool
 + (NSString *)deviceIPAdress {
