@@ -9,7 +9,7 @@
 #ifndef ZhiBo_pch
 #define ZhiBo_pch
 
-
+#import "NdKrHeader.h"
 #import "ZhiboHeader.h"
 
 #endif /* ZhiBo_pch */

@@ -110,7 +110,9 @@
     
     _o_giftName.attributedText = attributedStr;
     _o_img_gift.image = model.giftImage;
-    [_o_img_recive sd_setImageWithURL:[NSURL URLWithString:model.recviceImgStr]];
+    [ZhiboCommon downLoadImageWithURLString:model.recviceImgStr andBlock:^(UIImage *image) {
+        _o_img_recive.image = image;
+    }];
     _giftCount = model.giftCount;
 }
 @end

@@ -22,7 +22,10 @@
 }
 
 - (void)fillCollectionViewCellWithImgUrl:(NSString *)imgUrl andText:(NSString *)text andName:(NSString *)name andNum:(NSString *)num{
-    [_o_img_head sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+    [ZhiboCommon downLoadImageWithURLString:imgUrl andBlock:^(UIImage *image) {
+        _o_img_head.image = image;
+    }];
+//    [_o_img_head sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
     NSLog(@"hahha%@---%@----%@",text,name,num);
     _o_text.text = name;
     _o_name.text = text;

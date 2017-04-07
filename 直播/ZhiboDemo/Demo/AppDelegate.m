@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window= [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    HeadVC *VC = [[HeadVC alloc]initWithPlayId:@"224477" andPlayName:@"瑞伊内基卡" andServerid:@"100044" andSecretKey:zhibo_URL_HEAD andLevel:@"17"];
+    HeadVC *VC = [[HeadVC alloc]initWithPlayId:@"21005" andPlayName:@"ThieuDan" andServerid:@"700091" andSecretKey:zhibo_SecretKey andLevel:@"17"];
     
 //    HeadVC *VC = [[HeadVC alloc]initWithPlayId:@"30216" andPlayName:@"항나" andServerid:@"700106" andSecretKey:@"kO*reA101Black#Soldier" andLevel:@"100"];
     self.window.rootViewController = VC;

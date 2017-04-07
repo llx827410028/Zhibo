@@ -62,7 +62,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    [UIDevice currentDevice].proximityMonitoringEnabled = YES;
     [self initData];
     [self setupwebView];
     [self setupbnt];
@@ -137,7 +136,6 @@
     if (_o_block) {
         _o_block(false);
     }
-
     [[ZhiboCommon getCurrentVC]dismissViewControllerAnimated:YES completion:^{
         [ZhiboCommon setShowZhibo:@"0"];
     }];

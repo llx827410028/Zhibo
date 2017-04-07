@@ -287,7 +287,9 @@
 }
 
 +(void)downLoadImageWithURLString:(NSString *)urlString andBlock:(ImageDownLoadBlock)block{
-    
+    if (urlString.length <= 0) {
+        return;
+    }
     NSString *hesderString = [urlString substringToIndex:4];
     if ([hesderString isEqualToString:@"http"]) {
         NSURLSession *session =[NSURLSession sharedSession];

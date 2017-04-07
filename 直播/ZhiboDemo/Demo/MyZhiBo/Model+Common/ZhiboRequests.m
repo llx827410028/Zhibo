@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "HHttpHelper.h"
 
+
 @implementation ZhiboRequests
 +(instancetype)shareInstance
 {
@@ -23,7 +24,7 @@
 
 -(void)postZhiboData:(NSDictionary*)params andUrl:(NSString *)url andBackObjName:(NSString *)objName withSuccessBlock:(ZhiboRequstsSuccess) successBlock withFaildBlock:(ZhiboRequstsFaild)faildBlock{
     NSLog(@"zhiboData（%@）请求数据 =%@",objName,params);
-    [HHttpHelper post:[NSString stringWithFormat:@"%@%@",zhibo_URL_HEAD,url] RequestParams:params FinishBlock:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [HHttpHelper post:[NSString stringWithFormat:@"%@zhibo/%@",app_header_url,url] RequestParams:params FinishBlock:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSLog(@"zhiboData(%@)= %@ \n zhiboError=%@\n ",objName,data,connectionError);
         if(connectionError == nil)
         {

@@ -10,9 +10,7 @@
 #import "VTTool.h"
 #import "ZhiboModel.h"
 #import "MBProgressHUD.h"
-#import "UIImageView+WebCache.h"
 #import "ZhiboCommon.h"
-//#import "UIView+ZUtils.h"
 //
 //
 #define BTN_TAG 200
@@ -35,7 +33,3 @@
 ////格式化 字符串
 #define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 
-//#define zhibo_URL_HEAD @"http://api.bs.gamecoke.co.kr/cmbox/zhibo"
-//#define zhibo_URL_HEAD @"http://api.phuckich.vtcgame.vn/cmbox/zhibo"
-#define zhibo_URL_HEAD @"http://test.cmswat.com/cmbox_nd/zhibo/"
-#define  zhibo_SecretKey @"cmswat_zhibo_0606"

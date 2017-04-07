@@ -25,7 +25,9 @@
 
 
 - (void)fillcellWithName:(NSString *)name andImageUrl:(NSString *)imageUrl andNum:(NSString *)num{
-    [_o_image sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+    [ZhiboCommon downLoadImageWithURLString:imageUrl andBlock:^(UIImage * image) {
+        _o_image.image = image;
+    }];
     _o_name.text = name;
     _o_mun.text = num;
 }

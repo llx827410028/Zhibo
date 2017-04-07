@@ -234,7 +234,10 @@
     ZhiboModel_getGiftList *gift = [_o_data objectAtIndex:_secletIndex-101];
     if (!isAddbum) {
         _o_giftNum.text = @"1";
-         [_o_img_select sd_setImageWithURL:[NSURL URLWithString:gift.iconItem]];
+        [ZhiboCommon downLoadImageWithURLString:gift.iconItem andBlock:^(UIImage *image) {
+            _o_img_select.image = image;
+        }];
+//         [_o_img_select sd_setImageWithURL:[NSURL URLWithString:gift.iconItem]];
     }
     //礼物购买数量重置
     NSString *buystr = [ZhiboCommon getStringBykey:@"购买"];
@@ -415,7 +418,10 @@
 @implementation ZhiBoGiftItemView
 
 - (void)fillViewWithHeadImgUrl:(NSString *)headUrl andName:(NSString *)name andMoney:(long)money andPaytype:(int )payType andImgTag:(int)imgTag{
-    [_o_img_head sd_setImageWithURL:[NSURL URLWithString:headUrl]];
+    [ZhiboCommon downLoadImageWithURLString:headUrl andBlock:^(UIImage *image) {
+        _o_img_head.image = image;
+    }];
+//    [_o_img_head sd_setImageWithURL:[NSURL URLWithString:headUrl]];
     _o_img_head.tag = imgTag;
     _o_name.text = name;
     _o_money.text = [ZhiboCommon ComputemoneyWithMoney:money];
