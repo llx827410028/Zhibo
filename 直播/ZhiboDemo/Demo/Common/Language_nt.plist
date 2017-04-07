@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>获得</key>
+	<string>Obtain</string>
+	<key>小时</key>
+	<string>hour</string>
+	<key>万</key>
+	<string>hah</string>
+	<key>亿</key>
+	<string>hah</string>
+	<key>数量不能少于1</key>
+	<string>QTY must be more than 1</string>
+	<key>赠送</key>
+	<string>Send</string>
+	<key>屏幕亮度</key>
+	<string>Screen Brightness</string>
+	<key>弹幕位置</key>
+	<string>Feedback Screen Location</string>
+	<key>弹幕字体大小</key>
+	<string>Feedback Screen Font Size</string>
+	<key>弹幕透明度</key>
+	<string>Feedback Screen Transparency</string>
+	<key>游艇</key>
+	<string>Yacht</string>
+	<key>火箭</key>
+	<string>Rocket</string>
+	<key>城堡</key>
+	<string>Castle</string>
+	<key>跑车</key>
+	<string>Roadster</string>
+	<key>战斗机</key>
+	<string>Jet</string>
+	<key>点赞成功</key>
+	<string>Liked</string>
+	<key>请输入弹幕</key>
+	<string>Enter feedback content</string>
+	<key>加载失败</key>
+	<string>Loading failure.</string>
+	<key>赠送数量:</key>
+	<string>QTY:</string>
+	<key>发送</key>
+	<string>Send</string>
+	<key>购买</key>
+	<string>Buy</string>
+	<key>可送</key>
+	<string>Send</string>
+	<key>天</key>
+	<string>Day</string>
+	<key>排名</key>
+	<string>Ranking</string>
+	<key>昵称</key>
+	<string>Name</string>
+	<key>弹幕已开启</key>
+	<string>Feedback screen&apos;s open</string>
+	<key>弹幕已关闭</key>
+	<string>Feedback screen&apos;s off</string>
+	<key>礼物发送成功</key>
+	<string>Gift has been sent</string>
+	<key>礼物发送失败</key>
+	<string>Failed to send the gift</string>
+	<key>数量不能超过20</key>
+	<string>Max QTY : 20</string>
+	<key>砖石数量不足</key>
+	<string>Insufficient diamonds</string>
+	<key>金币数量不足</key>
+	<string>Insufficient gold</string>
+	<key>弹幕发送失败</key>
+	<string>Failed to send to feedback screen</string>
+	<key>弹幕发送成功</key>
+	<string>Feedback screen sent</string>
+	<key>取消关注</key>
+	<string>Unfollow</string>
+	<key>关注成功</key>
+	<string>Followed</string>
+	<key>关注失败</key>
+	<string>Failed to follow </string>
+	<key>点赞失败</key>
+	<string>Failed to lik</string>
+	<key>主播排名</key>
+	<string>Ranking</string>
+	<key>房间列表</key>
+	<string>Room List</string>
+	<key>点赞数</key>
+	<string>Likes</string>
+	<key>排行榜</key>
+	<string>Ranking</string>
+	<key>每周-00:00</key>
+	<string>Refreshed at 00:00 every Monday</string>
+	<key>更新</key>
+	<string>Update</string>
+	<key>请在此输入弹幕</key>
+	<string>Enter feedback screen here</string>
+</dict>
+</plist>
