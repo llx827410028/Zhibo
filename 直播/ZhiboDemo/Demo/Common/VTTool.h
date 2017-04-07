@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 
 @interface VTTool : NSObject
 + (NSString *)deviceIPAdress;
@@ -24,6 +22,9 @@
 + (id)loadViewFromNib:(NSString *)nibName owner:(id)owner atIndex:(NSUInteger)index;
 
 +(NSString*) getDocumentsPath;
+
++(void)mpProgressWithView:(UIView *)view andString:(NSString *)str;
+
 /**
  *  获取BundleID
  */
@@ -47,7 +48,13 @@
  *	获取当前Application的keyWindow
  */
 + (UIWindow *)appWindow;
+/**  */
++(NSString *)getUUID;
 
-//获取文本的宽度
++ (UIColor *) colorWithHexString: (NSString *)color;
 + (CGFloat )estimateTextWidthByContent:(NSString *)content textFont:(UIFont *)font;
+
++(NSDictionary *)getPlistDicValueWithKey:(NSString*)key;
+
++(NSString *)getPlistValueWithKey:(NSString*)key andPlistName:(NSString*)name;
 @end

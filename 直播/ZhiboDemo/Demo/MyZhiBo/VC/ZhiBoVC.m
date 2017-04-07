@@ -184,12 +184,10 @@
     }
     
     self.o_above_view.title = _o_title;
-    NSURL *imageUrl = [NSURL URLWithString:_o_imageUrl];
     if (_isLoadOtherPlayer) {
         [ZhiboCommon downLoadImageWithURLString:_o_imageUrl andBlock:^(UIImage *image) {
             self.placeHolderView.image = image;
         }];
-//        [self.placeHolderView sd_setImageWithURL:imageUrl placeholderImage:nil];
         _isLoadOtherPlayer = NO;
          [self.view bringSubviewToFront:self.placeHolderView];
         [self bringSubView];

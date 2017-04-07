@@ -392,7 +392,7 @@
 {
     ZhiboModel_GetPage *zhiboObj = [_o_zhiboPageData objectAtIndex:0];
     ZhiboModel_GetPage_zhibos *zhibo = zhiboObj.o_zhibos[indexPath.row];
-    [ZhiboCommon setAnchoruid: [NSString stringWithFormat:@"%d", zhibo.anchorUid]];
+    [ZhiboCommon setAnchoruid:  zhibo.anchorUid];
     
     ZhiBoVC *VC = [[ZhiBoVC alloc] initWithImageUrl:zhibo.thumbnail andTitle:zhibo.title];
     [self presentViewController:VC animated:YES completion:^{

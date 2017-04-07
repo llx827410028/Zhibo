@@ -149,7 +149,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZhiboModel_getrooms *obj = [_o_rooms.o_data objectAtIndex:_selectIndex];
      ZhiboModel_getrooms_data *data = obj.o_rooms [indexPath.row];
-    [ZhiboCommon setAnchoruid: [NSString stringWithFormat:@"%d", data.anchorUid]];
+    [ZhiboCommon setAnchoruid: data.anchorUid];
     if (_o_block) {
         _o_block(data.thumbnail,data.title);
     }

@@ -7,7 +7,6 @@
 //
 
 #import "ZhiboModel.h"
-#import "VTTool.h"
 
 @implementation ZhiboModel
 -(void)getModelFormJson:(NSDictionary *)dic{
@@ -30,7 +29,7 @@
     self.seenum = [ZhiboCommon parseNumberWithJsonDic:dic key:@"seenum"];
     self.title = [ZhiboCommon parseStringWithJsonDic:dic key:@"title"];
     self.anchorNickname = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorNickname"];
-    self.anchorUid = [ZhiboCommon parseNumberWithJsonDic:dic key:@"anchorUid"];
+    self.anchorUid = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
      self.thumbnail = [ZhiboCommon parseStringWithJsonDic:dic key:@"thumbnail"];
 }
 @end
@@ -41,7 +40,7 @@
     self.msg = [ZhiboCommon parseStringWithJsonDic:dic key:@"msg"];
     self.title = [ZhiboCommon parseStringWithJsonDic:dic key:@"title"];
     self.anchorNickname = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorNickname"];
-    self.anchorUid = [ZhiboCommon parseNumberWithJsonDic:dic key:@"anchorUid"];
+    self.anchorUid =[ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
     self.liveurl = [ZhiboCommon parseStringWithJsonDic:dic key:@"liveurl"];
     self.upnum = [ZhiboCommon parseStringWithJsonDic:dic key:@"upnum"];
     self.accentionnumber = [ZhiboCommon parseStringWithJsonDic:dic key:@"accentionnumber"];
@@ -79,7 +78,7 @@
 -(void)getModelFormJson:(NSDictionary *)dic{
     self.result = [ZhiboCommon parseNumberWithJsonDic:dic key:@"result"];
     self.msg = [ZhiboCommon parseStringWithJsonDic:dic key:@"msg"];
-    self.anchorUid = [ZhiboCommon parseNumberWithJsonDic:dic key:@"anchorUid"];
+    self.anchorUid =[ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
 }
 @end
 
@@ -96,7 +95,7 @@
 -(void)getModelFormJson:(NSDictionary *)dic{
     self.result = [ZhiboCommon parseNumberWithJsonDic:dic key:@"result"];
     self.msg = [ZhiboCommon parseStringWithJsonDic:dic key:@"msg"];
-    self.anchorUid = [ZhiboCommon parseNumberWithJsonDic:dic key:@"anchorUid"];
+    self.anchorUid =[ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
 }
 @end
 
@@ -114,7 +113,7 @@
     self.seenum = [ZhiboCommon parseStringWithJsonDic:dic key:@"seenum"];
     self.title = [ZhiboCommon parseStringWithJsonDic:dic key:@"title"];
     self.anchorNickname = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorNickname"];
-    self.anchorUid = [ZhiboCommon parseNumberWithJsonDic:dic key:@"anchorUid"];
+    self.anchorUid = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
     self.thumbnail = [ZhiboCommon parseStringWithJsonDic:dic key:@"thumbnail"];
 }
 @end

@@ -15,7 +15,7 @@
 @interface ZhiboModel_GetPage_zhibos: ZhiboModel
 @property (strong, nonatomic) NSString *anchorNickname;
 @property (nonatomic)  int index;
-@property (nonatomic)  int anchorUid;
+@property (nonatomic,strong)  NSString* anchorUid;
 @property (nonatomic)  int seenum;
 @property (strong, nonatomic) NSString *thumbnail;
 @property (strong, nonatomic) NSString *title;
@@ -42,7 +42,7 @@
 @property (nonatomic)  int result;
 @property (strong, nonatomic) NSString *msg;
 @property (strong, nonatomic) NSString *title;
-@property (nonatomic)  int anchorUid;
+@property (nonatomic,strong)  NSString* anchorUid;
 @property (strong, nonatomic) NSString *anchorNickname;
 
 @property (strong, nonatomic) NSString *liveurl;
@@ -86,7 +86,7 @@
 ”*/
 @property (nonatomic)  int result;
 @property (strong, nonatomic) NSString *msg;
-@property (nonatomic)  int anchorUid;
+@property (nonatomic,strong)  NSString* anchorUid;
 @property (strong, nonatomic) NSArray<ZhiboModel_danmaku *>* o_danmaku;
 @property (strong, nonatomic) NSArray<ZhiboModel_gift *> *o_gift;
 @end
@@ -107,7 +107,7 @@
  ”*/
 @property (nonatomic)  int result;
 @property (strong, nonatomic) NSString *msg;
-@property (nonatomic)  int anchorUid;
+@property (nonatomic,strong)  NSString* anchorUid;
 @property (strong, nonatomic) NSArray<ZhiboModel_getArchorRank_data *>* o_data;
 @end
 
@@ -117,7 +117,7 @@
 @interface ZhiboModel_getrooms_data:ZhiboModel
 @property (nonatomic) int  index;
 @property (strong, nonatomic) NSString *title;
-@property (nonatomic)  int anchorUid;
+@property (nonatomic,strong)  NSString* anchorUid;
 @property (strong, nonatomic) NSString *anchorNickname;
 @property (strong, nonatomic) NSString *thumbnail;
 @property (nonatomic,strong)  NSString *seenum;

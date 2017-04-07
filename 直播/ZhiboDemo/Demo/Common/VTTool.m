@@ -9,9 +9,10 @@
 #import "VTTool.h"
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#import "KeyChainStore.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "ZhiboLanguage.h"
-//#import "MBProgressHUD.h"
+#import <UIKit/UIKit.h>
+
 @implementation VTTool
 + (NSString *)deviceIPAdress {
     NSString *address = @"an error occurred when obtaining ip address";
@@ -43,6 +44,7 @@
     
     return address;
 }
+
 + (NSString *)getTimeSp{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -60,9 +62,9 @@
     
     NSDate *dateNow2 = [formatter dateFromString:nowtimeStr];
     
-    //    时间转时间戳的方法:
-    //    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];//这两个效果一样
-    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateNow2 timeIntervalSince1970]];//这两个效果一样
+     //    时间转时间戳的方法:
+     //    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];//这两个效果一样
+     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateNow2 timeIntervalSince1970]];//这两个效果一样
     NSLog(@"timeSp:%@",timeSp); //时间戳的值
     return timeSp;
 }
@@ -113,10 +115,18 @@
     return pathfile;
 }
 
-#pragma mark -- 获取 设备信息
++(void)mpProgressWithView:(UIView *)view andString:(NSString *)str{
+    MBProgressHUD *hud1 = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud1.mode = MBProgressHUDModeText;
+    hud1.detailsLabelText = str;
+    hud1.margin = 10.f;
+    hud1.removeFromSuperViewOnHide = YES;
+    [hud1 hide:YES afterDelay:2.0];
+}
+
 
 +(NSString*) getBundleID{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 }
 
 /**
@@ -161,6 +171,69 @@
     return window;
 }
 
+
++(NSString *)getUUID
+{
+    NSString * strUUID = (NSString *)[KeyChainStore load:KEY_USERNAME_PASSWORD];
+    
+    //首次执行该方法时，uuid为空
+    if ([strUUID isEqualToString:@""] || !strUUID)
+    {
+        //生成一个uuid的方法
+        CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+        
+        strUUID = (NSString *)CFBridgingRelease(CFUUIDCreateString (kCFAllocatorDefault,uuidRef));
+        
+        //将该uuid保存到keychain
+        [KeyChainStore save:KEY_USERNAME_PASSWORD data:strUUID];
+        
+    }
+    return strUUID;
+}
+
+
++ (UIColor *) colorWithHexString: (NSString *)color
+{
+    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) {
+        return [UIColor clearColor];
+    }
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"])
+        cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"])
+        cString = [cString substringFromIndex:1];
+    if ([cString length] != 6)
+        return [UIColor clearColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    
+    //r
+    NSString *rString = [cString substringWithRange:range];
+    
+    //g
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    //b
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
+}
+
 + (CGFloat )estimateTextWidthByContent:(NSString *)content textFont:(UIFont *)font
 {
     
@@ -180,4 +253,27 @@
     
     return ceil(theSize.width);
 }
+
++(NSDictionary *)getPlistDicValueWithKey:(NSString*)key{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:key ofType:@"plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
+        NSDictionary *dic = [[NSDictionary alloc]initWithContentsOfFile:filePath];
+        if (dic) {
+            return dic;
+        }
+    }
+    return nil;
+}
+
++(NSString *)getPlistValueWithKey:(NSString*)key andPlistName:(NSString*)name{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
+        NSDictionary *dic = [[NSDictionary alloc]initWithContentsOfFile:filePath];
+        if (dic) {
+            return dic[key];
+        }
+    }
+    return @"";
+}
+
 @end
