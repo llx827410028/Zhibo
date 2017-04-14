@@ -50,14 +50,14 @@
     }
     return self;
 }
-//固定 只能横屏
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+- (BOOL)shouldAutorotate{
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskLandscapeRight;
+    return UIInterfaceOrientationMaskLandscape;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

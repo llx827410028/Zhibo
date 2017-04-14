@@ -107,13 +107,12 @@
     return self;
 }
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+- (BOOL)shouldAutorotate{
+    return YES;
 }
 
-
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskLandscapeRight;
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 
