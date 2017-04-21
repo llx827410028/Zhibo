@@ -44,7 +44,7 @@
 @property (strong, nonatomic) NSString *title;
 @property (nonatomic,strong)  NSString* anchorUid;
 @property (strong, nonatomic) NSString *anchorNickname;
-
+@property (nonatomic) int cmSWat;
 @property (strong, nonatomic) NSString *liveurl;
 @property (strong, nonatomic) NSString *upnum;
 /**< 关注人数 */

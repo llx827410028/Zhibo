@@ -39,6 +39,7 @@
     self.result = [ZhiboCommon parseNumberWithJsonDic:dic key:@"result"];
     self.msg = [ZhiboCommon parseStringWithJsonDic:dic key:@"msg"];
     self.title = [ZhiboCommon parseStringWithJsonDic:dic key:@"title"];
+    self.cmSWat = [ZhiboCommon parseNumberWithJsonDic:dic key:@"CmSWat"];
     self.anchorNickname = [ZhiboCommon parseStringWithJsonDic:dic key:@"anchorNickname"];
     self.anchorUid =[ZhiboCommon parseStringWithJsonDic:dic key:@"anchorUid"];
     self.liveurl = [ZhiboCommon parseStringWithJsonDic:dic key:@"liveurl"];

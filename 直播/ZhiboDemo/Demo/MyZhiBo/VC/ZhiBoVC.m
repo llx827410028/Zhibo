@@ -33,7 +33,7 @@
 #define GiftId @"giftId"
 #define GiftShowType @"showType"
 
-@interface ZhiBoVC ()
+@interface ZhiBoVC ()<UIWebViewDelegate>
 {
     //弹幕
     BarrageRenderer * _renderer;
@@ -68,6 +68,7 @@
 @property(nonatomic, weak) UIImageView *placeHolderView;
 @property (weak, nonatomic) UIView *PlayerView;
 @property (atomic, retain) id <IJKMediaPlayback> player;
+@property (nonatomic,strong)UIWebView *o_webView;
 /**<主播排行view */
 @property (nonatomic,retain)ZhiBoRankingView *o_rankingView;
 /**< 所有直播的房间 */
@@ -94,6 +95,8 @@
 @property (strong,nonatomic)NSMutableDictionary *o_giftDic;
 @property(nonatomic,strong)ZhiboModel_danmaku *o_selfSendDanmaku;
 @property(nonatomic,strong)ZhiboModel_gift *o_selfSendGift;
+
+@property (nonatomic)BOOL isFaceUrl;
 
 @end
 
@@ -579,7 +582,7 @@
         [_o_roomInfo getModelFormJson:backId];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-           [selfWeak zhiBoIJKFFMovieWithPlayUrl:_o_roomInfo.liveurl];
+           [selfWeak zhiBoIJKFFMovieWithPlayUrl:_o_roomInfo.liveurl andCmSWat:_o_roomInfo.cmSWat];
             [selfWeak getDanmaku];
         });
         } withFaildBlock:^(NSError * error) {
@@ -726,29 +729,61 @@
 
 
 //播放
-- (void)zhiBoIJKFFMovieWithPlayUrl:(NSString *)playUrl{
-    
-    NSLog(@"class name>> %@---playUrllog---》%@",NSStringFromClass([self class]),playUrl);
+- (void)zhiBoIJKFFMovieWithPlayUrl:(NSString *)playUrl andCmSWat:(int)type{
+    if ([playUrl rangeOfString:@"www.youtube.com"].location == NSNotFound) {
+        _isFaceUrl = YES;
+    }
     NSURL *url = [NSURL URLWithString:playUrl];
-    _player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
-    UIView *playerView = [self.player view];
+    NSLog(@"class name>> %@---playUrllog---》%@",NSStringFromClass([self class]),playUrl);
     UIView *displayView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.PlayerView = displayView;
     self.PlayerView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:self.PlayerView];
+    if (type == 1) {
+        [self.view addSubview:self.PlayerView];
+        _player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
+        UIView *playerView = [self.player view];
+        
+        playerView.frame = self.PlayerView.bounds;
+        playerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
+        UITapGestureRecognizer* singleRecognizer;
+        singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapFrom:)];
+        singleRecognizer.numberOfTapsRequired = 1; // 单击
+        [playerView addGestureRecognizer:singleRecognizer];
+        [self.PlayerView insertSubview:playerView atIndex:1];
+        [_player setScalingMode:IJKMPMovieScalingModeAspectFill];
+        [_player prepareToPlay];
+        [self installMovieNotificationObservers];
+    }else{
+        
+        NSURLRequest * _request = [[NSURLRequest alloc] initWithURL:url];
+        
+        if (!_o_webView) {
+            UIWebView *webViews = [[UIWebView alloc] initWithFrame:CGRectZero];
+            NSString *oldAgent = [webViews stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+            NSLog(@"old agent :%@", oldAgent);
+            NSString *newAgent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36";//@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/601.5.17 (KHTML, like Gecko) Version/9.1 Safari/601.5.17";
+            NSLog(@"new agent :%@", newAgent);
+            //regist the new agent
+            NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
+            [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+            
+            _o_webView = [[UIWebView alloc]initWithFrame:self.view.frame];
+            _o_webView .allowsInlineMediaPlayback  =  YES ;
+            _o_webView.mediaPlaybackAllowsAirPlay = YES;
+            _o_webView.delegate = self;
+            UITapGestureRecognizer* singleRecognizer;
+            singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapFrom:)];
+            singleRecognizer.numberOfTapsRequired = 1; // 单击
+            [_PlayerView addGestureRecognizer:singleRecognizer];
+            [self.view addSubview:_o_webView];
+            _PlayerView.backgroundColor = [UIColor clearColor];
+            [_o_webView insertSubview:_PlayerView atIndex:1];
+        }
+        [_o_webView loadRequest:_request];
+    }
     
-    playerView.frame = self.PlayerView.bounds;
-    playerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    UITapGestureRecognizer* singleRecognizer;
-    singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapFrom:)];
-    singleRecognizer.numberOfTapsRequired = 1; // 单击
-    [playerView addGestureRecognizer:singleRecognizer];
-    [self.PlayerView insertSubview:playerView atIndex:1];
     [self bringSubView];
-    [_player setScalingMode:IJKMPMovieScalingModeAspectFill];
-    [_player prepareToPlay];
-    [self installMovieNotificationObservers];
 }
 
 - (void)bringSubView{
@@ -763,6 +798,41 @@
     [self.view bringSubviewToFront:self.o_giftView];
     [_renderer start];
     [_timer setFireDate:[NSDate date]];
+}
+
+
+#pragma mark - 网页视频
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
+}
+
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    NSLog(@"%@",webView);
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorCancelled) {
+        NSLog(@"Canceled request: %@", webView.request.URL);
+        return;
+    }
+    else if ([error.domain isEqualToString:@"WebKitErrorDomain"] && (error.code == 101 || error.code == 204)) {
+        NSLog(@"ignore: %@", error);
+        return;
+    }
+}
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if(!_isFaceUrl){
+        NSString *js = @"javascript: var v = document.getElementsByClassName('video-stream html5-main-video'); v[0].click();v[0].setAttribute('Playsinline','Playsinline');";
+        [webView stringByEvaluatingJavaScriptFromString:js];
+    }else{
+        NSString *js = @"javascript: var v = document.getElementsByClassName('_ox1'); v[0].play();v[0].setAttribute('Playsinline','Playsinline');var image = document.getElementsByClassName('_3fnx');image[0].style.display = 'none';";
+        [webView stringByEvaluatingJavaScriptFromString:js];
+    }
+
 }
 
 #pragma mark --视频播放通知

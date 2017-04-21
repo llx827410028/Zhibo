@@ -51,8 +51,8 @@
     NSString *buildVersion = [VTTool appMinorVersion];
     NSLog(@"buildVersion---》%@",[buildVersion substringWithRange:NSMakeRange(buildVersion.length-3,3)]);
     int versioncode = [[buildVersion substringWithRange:NSMakeRange(buildVersion.length-3,3)] intValue];
-    
-    NSString *requesttring = [NSString stringWithFormat:@"packagename=%@&channelid=%@&platform=iphone&versioncode=%d",[VTTool getBundleID],app_channelid,versioncode];
+    //product   0 为测试  1为正式
+    NSString *requesttring = [NSString stringWithFormat:@"packagename=%@&channelid=%@&platform=iphone&versioncode=%d&product=%@",[VTTool getBundleID],app_channelid,versioncode,@"1"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@plugin/getUpdate.php?%@",app_header_url,requesttring];
     __weak NdForceAndLogOut *weakSelf = self;
     [[PaymentRequests shareInstance]getData:nil andisHud:NO andUrl:requestUrl andBackObjName:@"获取强更数据" withSuccessBlock:^(NSDictionary *backDic) {
@@ -92,12 +92,19 @@
             alert.tag = update_tag;
             [alert show];
         }
+    }else{
+        if (_o_loginSdk) {
+            _o_loginSdk();
+        }
     }
 }
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag == update_tag) {
+        if (_o_loginSdk) {
+            _o_loginSdk();
+        }
         if (buttonIndex == 1) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.o_apkurl]];
         }
