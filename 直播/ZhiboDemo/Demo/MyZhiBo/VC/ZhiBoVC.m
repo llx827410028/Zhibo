@@ -762,7 +762,7 @@
             UIWebView *webViews = [[UIWebView alloc] initWithFrame:CGRectZero];
             NSString *oldAgent = [webViews stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
             NSLog(@"old agent :%@", oldAgent);
-            NSString *newAgent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36";//@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/601.5.17 (KHTML, like Gecko) Version/9.1 Safari/601.5.17";
+            NSString *newAgent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50";
             NSLog(@"new agent :%@", newAgent);
             //regist the new agent
             NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent", nil];
@@ -778,7 +778,7 @@
             [_PlayerView addGestureRecognizer:singleRecognizer];
             [self.view addSubview:_o_webView];
             _PlayerView.backgroundColor = [UIColor clearColor];
-            [_o_webView insertSubview:_PlayerView atIndex:1];
+//            [_o_webView insertSubview:_PlayerView atIndex:1];
         }
         [_o_webView loadRequest:_request];
     }
@@ -830,7 +830,7 @@
         [webView stringByEvaluatingJavaScriptFromString:js];
     }else{
         NSString *js = @"javascript: var v = document.getElementsByClassName('_ox1'); v[0].play();v[0].setAttribute('Playsinline','Playsinline');var image = document.getElementsByClassName('_3fnx');image[0].style.display = 'none';";
-        [webView stringByEvaluatingJavaScriptFromString:js];
+//        [webView stringByEvaluatingJavaScriptFromString:js];
     }
 
 }

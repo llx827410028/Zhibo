@@ -10,7 +10,6 @@
 #import "PaymentRequests.h"
 #import <objc/message.h>
 #define loginOut_tag 2000
-
 #define update_tag 100
 #define update_force_tag 101
 
