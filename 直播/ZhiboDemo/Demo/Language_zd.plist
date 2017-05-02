@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>屏幕亮度</key>
+	<string>سطوع الشاشة</string>
+	<key>弹幕位置</key>
+	<string>موقع الشاشة</string>
+	<key>弹幕字体大小</key>
+	<string>حجم خط الشاشة</string>
+	<key>弹幕透明度</key>
+	<string>شفافية الشاشة</string>
+	<key>游艇</key>
+	<string>يخت</string>
+	<key>火箭</key>
+	<string>صاروخ</string>
+	<key>城堡</key>
+	<string>صاروخ</string>
+	<key>跑车</key>
+	<string>رودستير</string>
+	<key>战斗机</key>
+	<string>جيت</string>
+	<key>点赞成功</key>
+	<string>لايك</string>
+	<key>请输入弹幕</key>
+	<string>أدخل تعليقك هنا</string>
+	<key>加载失败</key>
+	<string>فشل التحميل</string>
+	<key>赠送数量:</key>
+	<string>كمية:</string>
+	<key>发送</key>
+	<string>أرسل</string>
+	<key>购买</key>
+	<string>شراء</string>
+	<key>可送</key>
+	<string>يمكن ارسالها</string>
+	<key>天</key>
+	<string>يوم</string>
+	<key>排名</key>
+	<string>ترتيب</string>
+	<key>昵称</key>
+	<string>الإسم</string>
+	<key>弹幕已开启</key>
+	<string>شاشة التعليق مفتوحة</string>
+	<key>弹幕已关闭</key>
+	<string>شاشة التعليق مغلقة</string>
+	<key>礼物发送成功</key>
+	<string>تم إرسال الهدية.</string>
+	<key>礼物发送失败</key>
+	<string>فشل في إرسال الهدية</string>
+	<key>数量不能超过20</key>
+	<string>كمية قصوى: 20</string>
+	<key>砖石数量不足</key>
+	<string>ألماس غير كافي.</string>
+	<key>金币数量不足</key>
+	<string>الذهب غير كافي.</string>
+	<key>弹幕发送失败</key>
+	<string>فشل الإرسال إلى شاشة التعليق.</string>
+	<key>弹幕发送成功</key>
+	<string>تم إرسال التعليق.</string>
+	<key>取消关注</key>
+	<string>إلغاء المتابعة</string>
+	<key>关注成功</key>
+	<string>متابعة</string>
+	<key>关注失败</key>
+	<string>فشل في المتابعة</string>
+	<key>点赞失败</key>
+	<string>فشل اللايك</string>
+	<key>主播排名</key>
+	<string>ترتيب</string>
+	<key>房间列表</key>
+	<string>قائمة الغرف</string>
+	<key>点赞数</key>
+	<string>لايك</string>
+	<key>排行榜</key>
+	<string>ترتيب</string>
+	<key>每周-00:00</key>
+	<string>تحديث في 00:00 كل أثنين</string>
+	<key>更新</key>
+	<string>تحديث</string>
+	<key>请在此输入弹幕</key>
+	<string>أدخل شاشة التعليق هنا.</string>
+</dict>
+</plist>
