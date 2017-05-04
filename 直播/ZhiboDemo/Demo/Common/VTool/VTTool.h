@@ -58,4 +58,5 @@
 +(NSDictionary *)getPlistDicValueWithKey:(NSString*)key;
 
 +(NSString *)getPlistValueWithKey:(NSString*)key andPlistName:(NSString*)name;
++(NSString *)isEntiyWithKey:(NSString*)key;
 @end

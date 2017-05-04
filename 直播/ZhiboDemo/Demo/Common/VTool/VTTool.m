@@ -275,4 +275,8 @@
     return @"";
 }
 
+
++(NSString *)isEntiyWithKey:(NSString*)key{
+    return key?:@"";
+}
 @end

@@ -37,6 +37,7 @@
 		449B90331EA4DCCF005A189C /* UIView+ZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 449B90221EA4DCCF005A189C /* UIView+ZUtils.m */; };
 		449B90341EA4DCCF005A189C /* VTTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 449B90241EA4DCCF005A189C /* VTTool.m */; };
 		44B2EAC61E2C633700F71269 /* ZhiboCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B2EAC51E2C633700F71269 /* ZhiboCommon.m */; };
+		44CA5EB61EBB2EA500D2A310 /* Language_yn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44CA5EB51EBB2EA500D2A310 /* Language_yn.plist */; };
 		44CA98AD1DB8A7C500D26D0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA98AC1DB8A7C500D26D0A /* libz.tbd */; };
 		44CA98AF1DB8A7CE00D26D0A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA98AE1DB8A7CE00D26D0A /* libbz2.tbd */; };
 		44CA98B11DB8A7FD00D26D0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA98B01DB8A7FD00D26D0A /* UIKit.framework */; };
@@ -151,6 +152,7 @@
 		449B90241EA4DCCF005A189C /* VTTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTool.m; sourceTree = "<group>"; };
 		44B2EAC41E2C633700F71269 /* ZhiboCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiboCommon.h; sourceTree = "<group>"; };
 		44B2EAC51E2C633700F71269 /* ZhiboCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiboCommon.m; sourceTree = "<group>"; };
+		44CA5EB51EBB2EA500D2A310 /* Language_yn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Language_yn.plist; sourceTree = "<group>"; };
 		44CA98A51DB8950E00D26D0A /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		44CA98AC1DB8A7C500D26D0A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		44CA98AE1DB8A7CE00D26D0A /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
@@ -297,6 +299,7 @@
 		44236E941DAF7BD40008B544 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				44CA5EB51EBB2EA500D2A310 /* Language_yn.plist */,
 				449B90001EA4DCCF005A189C /* Common */,
 				4458663B1E97A84700ADFD8D /* Language_cn.plist */,
 				4458663C1E97A84700ADFD8D /* Language_kr.plist */,
@@ -664,6 +667,7 @@
 				445866421E97A84700ADFD8D /* Language_nt.plist in Resources */,
 				44DA1D3E1DC881CC0034857B /* HeadVC.xib in Resources */,
 				44DA1D4B1DC881CC0034857B /* ZhiBoSetProgress.xib in Resources */,
+				44CA5EB61EBB2EA500D2A310 /* Language_yn.plist in Resources */,
 				443F420F1DDEE91B004C115F /* PresentView.xib in Resources */,
 				44DA1D3A1DC881CC0034857B /* ZhiboListCellTableViewCell.xib in Resources */,
 				44DA1D491DC881CC0034857B /* ZhiBoRankingView.xib in Resources */,

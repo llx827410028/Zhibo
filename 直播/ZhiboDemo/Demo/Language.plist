@@ -2,95 +2,95 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>获得</key>
-	<string>Nhận được</string>
-	<key>小时</key>
-	<string>Tiếng</string>
-	<key>万</key>
-	<string>vạn</string>
-	<key>亿</key>
-	<string>trăm triệu</string>
-	<key>数量不能少于1</key>
-	<string>Số lượng không thể ít hơn 1</string>
-	<key>赠送</key>
-	<string>tặng</string>
+    <key>获得</key>
+    <string>أحصل</string>
+    <key>小时</key>
+    <string>ساعة</string>
+    <key>万</key>
+    <string>10 آلاف</string>
+    <key>亿</key>
+    <string>100 مليون</string>
+    <key>数量不能少于1</key>
+    <string>الكمية يجب أن تكون أكبر من 1</string>
+    <key>赠送</key>
+    <string>إرسال</string>
 	<key>屏幕亮度</key>
-	<string>Độ sáng màn hình</string>
+	<string>سطوع الشاشة</string>
 	<key>弹幕位置</key>
-	<string>ị trí notices</string>
+	<string>موقع الشاشة</string>
 	<key>弹幕字体大小</key>
-	<string>Cỡ chữ notices</string>
+	<string>حجم خط الشاشة</string>
 	<key>弹幕透明度</key>
-	<string>Độ sáng notices</string>
+	<string>شفافية الشاشة</string>
 	<key>游艇</key>
-	<string>Du thuyền</string>
+	<string>يخت</string>
 	<key>火箭</key>
-	<string>Hỏa tiễn</string>
+	<string>صاروخ</string>
 	<key>城堡</key>
-	<string>Lâu đài</string>
+	<string>صاروخ</string>
 	<key>跑车</key>
-	<string>Xe hơi</string>
+	<string>رودستير</string>
 	<key>战斗机</key>
-	<string>Phi cơ</string>
+	<string>جيت</string>
 	<key>点赞成功</key>
-	<string>Like</string>
+	<string>لايك</string>
 	<key>请输入弹幕</key>
-	<string>Nhập nội dung</string>
+	<string>أدخل تعليقك هنا</string>
 	<key>加载失败</key>
-	<string>Tải thất bại</string>
+	<string>فشل التحميل</string>
 	<key>赠送数量:</key>
-	<string>Số lượng:</string>
+	<string>كمية:</string>
 	<key>发送</key>
-	<string>Gửi</string>
+	<string>أرسل</string>
 	<key>购买</key>
-	<string>Mua</string>
+	<string>شراء</string>
 	<key>可送</key>
-	<string>Có thể tặng</string>
+	<string>يمكن ارسالها</string>
 	<key>天</key>
-	<string>Ngày</string>
+	<string>يوم</string>
 	<key>排名</key>
-	<string>Hạng</string>
+	<string>ترتيب</string>
 	<key>昵称</key>
-	<string>Tên</string>
+	<string>الإسم</string>
 	<key>弹幕已开启</key>
-	<string>Mở notices</string>
+	<string>شاشة التعليق مفتوحة</string>
 	<key>弹幕已关闭</key>
-	<string>Đóng notices</string>
+	<string>شاشة التعليق مغلقة</string>
 	<key>礼物发送成功</key>
-	<string>Thành công</string>
+	<string>تم إرسال الهدية.</string>
 	<key>礼物发送失败</key>
-	<string>Thất bại</string>
+	<string>فشل في إرسال الهدية</string>
 	<key>数量不能超过20</key>
-	<string>Không quá 20</string>
+	<string>كمية قصوى: 20</string>
 	<key>砖石数量不足</key>
-	<string>Thiếu Kim Cương</string>
+	<string>ألماس غير كافي.</string>
 	<key>金币数量不足</key>
-	<string>Thiếu Vàng</string>
+	<string>الذهب غير كافي.</string>
 	<key>弹幕发送失败</key>
-	<string>Thất bại</string>
+	<string>فشل الإرسال إلى شاشة التعليق.</string>
 	<key>弹幕发送成功</key>
-	<string>Thành công</string>
+	<string>تم إرسال التعليق.</string>
 	<key>取消关注</key>
-	<string>Hủy theo dõi</string>
+	<string>إلغاء المتابعة</string>
 	<key>关注成功</key>
-	<string>Đã theo dõi</string>
+	<string>متابعة</string>
 	<key>关注失败</key>
-	<string>Thất bại</string>
+	<string>فشل في المتابعة</string>
 	<key>点赞失败</key>
-	<string>Thất bại</string>
+	<string>فشل اللايك</string>
 	<key>主播排名</key>
-	<string>Hạng stream</string>
+	<string>ترتيب</string>
 	<key>房间列表</key>
-	<string>Phòng</string>
+	<string>قائمة الغرف</string>
 	<key>点赞数</key>
-	<string>Like</string>
+	<string>لايك</string>
 	<key>排行榜</key>
-	<string>BXH</string>
+	<string>ترتيب</string>
 	<key>每周-00:00</key>
-	<string>Tuần-00:00</string>
+	<string>تحديث في 00:00 كل أثنين</string>
 	<key>更新</key>
-	<string>Update</string>
+	<string>تحديث</string>
 	<key>请在此输入弹幕</key>
-	<string>Hãy nhập nội dung</string>
+	<string>أدخل شاشة التعليق هنا.</string>
 </dict>
 </plist>

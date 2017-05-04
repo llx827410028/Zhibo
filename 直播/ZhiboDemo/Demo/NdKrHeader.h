@@ -11,15 +11,20 @@
 #define app_channelid @""
 #define app_getOrder_url @""
 #define app_request_good_url @""
+#define app_Force_Environment @"1"
 //uc
 //#define  zhibo_SecretKey @"cmswat_zhibo_0606"
 //#define  app_header_url @"http://api.usa.zhuapaiba.com/cmbox_nd/"
 //yn
-#define  zhibo_SecretKey @"cmswat_zhibo_0606"
-#define  app_header_url @"http://api.phuckich.vtcgame.vn/cmbox/"
+//#define  zhibo_SecretKey @"cmswat_zhibo_0606"
+//#define  app_header_url @"http://api.phuckich.vtcgame.vn/cmbox/"
 //kr
 //#define  zhibo_SecretKey @"kO*reA101Black#Soldier"
 //#define  app_header_url @"http://api.phuckich.vtcgame.vn/cmbox/"
+
+//zd
+#define  zhibo_SecretKey @"cmswat_zhibo_0606"
+#define  app_header_url @"http://api.thekillbox-mena.com/cmbox/"
 
 //配置信息
 /*

@@ -778,7 +778,7 @@
             [_PlayerView addGestureRecognizer:singleRecognizer];
             [self.view addSubview:_o_webView];
             _PlayerView.backgroundColor = [UIColor clearColor];
-//            [_o_webView insertSubview:_PlayerView atIndex:1];
+            [_o_webView insertSubview:_PlayerView atIndex:1];
         }
         [_o_webView loadRequest:_request];
     }
