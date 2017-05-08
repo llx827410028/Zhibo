@@ -8,6 +8,7 @@
 
 #import "NdReplay.h"
 #import <ReplayKit/ReplayKit.h>
+#import "UnityAppController.h"
 
 @interface NdReplay ()<RPPreviewViewControllerDelegate>
 
@@ -37,6 +38,8 @@
             }
             if(previewViewController){
                 //设置预览页面到代理
+                UnityAppController * appDelegate = (UnityAppController*)[UIApplication sharedApplication].delegate;
+                [appDelegate isUnityPause:true];
                 previewViewController.previewControllerDelegate = self;
                 [[ZhiboCommon getCurrentVC] presentViewController:previewViewController animated:YES completion:nil];
             }
@@ -59,6 +62,8 @@
 -(void)previewControllerDidFinish:(RPPreviewViewController*)previewController{
     //用户操作完成后，返回之前的界面
     [previewController dismissViewControllerAnimated:YES completion:nil];
+    UnityAppController * appDelegate = (UnityAppController*)[UIApplication sharedApplication].delegate;
+    [appDelegate isUnityPause:false];
 }
 
 -(BOOL )isSupporios{
