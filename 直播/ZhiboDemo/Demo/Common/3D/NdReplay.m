@@ -37,9 +37,13 @@
                 //处理发生的错误，如磁盘空间不足而停止等
             }
             if(previewViewController){
+                if (_o_block) {
+                    _o_block(YES);
+                }
                 //设置预览页面到代理
                 UnityAppController * appDelegate = (UnityAppController*)[UIApplication sharedApplication].delegate;
                 [appDelegate isUnityPause:true];
+                //是否录制成功
                 previewViewController.previewControllerDelegate = self;
                 [[ZhiboCommon getCurrentVC] presentViewController:previewViewController animated:YES completion:nil];
             }
@@ -64,6 +68,10 @@
     [previewController dismissViewControllerAnimated:YES completion:nil];
     UnityAppController * appDelegate = (UnityAppController*)[UIApplication sharedApplication].delegate;
     [appDelegate isUnityPause:false];
+    //是否录制成功
+    if (_o_block) {
+        _o_block(NO);
+    }
 }
 
 -(BOOL )isSupporios{
