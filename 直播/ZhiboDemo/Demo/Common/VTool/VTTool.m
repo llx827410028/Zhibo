@@ -70,9 +70,9 @@
     
     NSDate *dateNow2 = [formatter dateFromString:nowtimeStr];
     
-     //    时间转时间戳的方法:
-     //    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];//这两个效果一样
-     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateNow2 timeIntervalSince1970]];//这两个效果一样
+    //    时间转时间戳的方法:
+    //    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];//这两个效果一样
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateNow2 timeIntervalSince1970]];//这两个效果一样
     NSLog(@"timeSp:%@",timeSp); //时间戳的值
     return timeSp;
 }
@@ -134,7 +134,7 @@
 
 
 +(NSString*) getBundleID{
-     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 }
 
 /**
@@ -366,4 +366,19 @@
     return [addresses count] ? addresses : nil;
 }
 
+
++ (NSString *)timeWithTimeIntervalString:(NSString *)timeString
+{
+    
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    NSLog(@"confromTimespStr =  %@",confromTimespStr);
+    
+    return confromTimespStr;
+}
 @end

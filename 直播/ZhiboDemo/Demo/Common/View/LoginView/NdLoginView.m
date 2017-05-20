@@ -45,7 +45,7 @@ typedef enum {
     CGFloat height  = [KR_Common getheightByWith5sHeight:54];
     CGFloat x = (llx_screenWidth-2*width)/3;
     CGFloat y = llx_screenHeight - height - 10;//最底下的按钮
-
+    
     UIButton *gcBnt = [UIButton buttonWithType:UIButtonTypeCustom];
     [gcBnt setBackgroundImage:[UIImage imageNamed:@"Login-Button_Game-Center"] forState:UIControlStateNormal];
     gcBnt.tag = btn_tag;
@@ -74,8 +74,8 @@ typedef enum {
      addTarget:self
      action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     
-
-//    [self addSubview:fbBnt];
+    
+    //    [self addSubview:fbBnt];
     [self addSubview:guBnt];
     [self addSubview:gcBnt];
 }
@@ -122,7 +122,7 @@ typedef enum {
                 if (_o_loginSuccessblock) {
                     _o_loginSuccessblock([[NdGameCenter shareInstance]getLocalPlayerId] ,@"");
                      [NdAppsflyer recordLoginByGcWithId:[[NdGameCenter shareInstance]getLocalPlayerId]];
-                      [NdFaceBook recordLoginByGcWithGameId:[[NdGameCenter shareInstance]getLocalPlayerId]];
+                    [NdFaceBook recordLoginByGcWithGameId:[[NdGameCenter shareInstance]getLocalPlayerId]];
                 }
                 return YES;
             }
@@ -162,6 +162,7 @@ typedef enum {
 
 #pragma mark --> 游客方式登录
 - (void)loginForGuest{
+    [self hideLoginView];
     [self setUpBgView];
     //提前 创建视图
     if (!_o_gusetLv) {
@@ -197,7 +198,8 @@ typedef enum {
             [KR_Common setLoginTime:[VTTool getTimeSp]];
             [KR_Common setLoginType:app_loginType_gc];
         }
-        [NdAppsflyer recordLoginByGcWithId:userId];
+        [weakSelf hideLoginView];
+        //[NdAppsflyer recordLoginByGcWithId:userId];
         [NdFaceBook recordLoginByGcWithGameId:userId];
         if (_o_loginSuccessblock) {
             _o_loginSuccessblock(userId,token);
@@ -206,6 +208,7 @@ typedef enum {
     
     [NdGameCenter shareInstance].o_hideLoginViewBlock = ^(BOOL isHide){
         if (isHide) {
+            [weakSelf hideLoginView];
         }else{
             [weakSelf showLoginView];
         }
@@ -223,9 +226,10 @@ typedef enum {
                     [KR_Common setLoginTime:[VTTool getTimeSp]];
                     [KR_Common setLoginType:app_loginType_fb];
                 }
-                [NdAppsflyer recordLoginByFBWithId:userid andWithFBName:name];
+                //[NdAppsflyer recordLoginByFBWithId:userid andWithFBName:name];
                 [NdFaceBook recordLoginByFbWithGameId:userid andEmail:name andTEL:email];
                 [weakself getfbIdByMyServeWithSid:userid anName:name andEmail:email];
+                [weakself hideLoginView];
             }
         };
     }
@@ -267,7 +271,7 @@ typedef enum {
     _isShowLoginView = YES;
     [self setUpBgView];
     if (!_isAddToWindow) {
-         [[VTTool appWindow]addSubview:self];
+        [[VTTool appWindow]addSubview:self];
     }else{
         [self isHide:NO];
     }

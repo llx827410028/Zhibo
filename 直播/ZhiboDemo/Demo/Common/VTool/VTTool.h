@@ -61,4 +61,6 @@
 +(NSString *)isEntiyWithKey:(NSString*)key;
 //判断是否为ipv6环境
 + (BOOL)isIpv6;
+
++ (NSString *)timeWithTimeIntervalString:(NSString *)timeString;
 @end
